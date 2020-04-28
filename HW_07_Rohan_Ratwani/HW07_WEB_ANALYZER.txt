@@ -1,0 +1,12 @@
+def web_analyzer(weblogs: List[Tuple[str, str]]) -> List[Tuple[str, List[str]]]:
+    ddi = defaultdict(set)
+    lst = []
+    # for i,j in weblogs:
+    #     ddi[j].add(i)
+    [ddi[j].add(i) for i, j in weblogs]
+    # for key, value in ddi.items():
+    #     temp = (key, list(value))
+    #     lst.append(temp)
+    # print(lst)
+    [lst.append((key, list(sorted(value)))) for key, value in ddi.items() ]
+    return sorted(lst)
